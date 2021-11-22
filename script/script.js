@@ -54,7 +54,8 @@ pill.red.onmouseout = () => {
 }
 
 let refletir = {
-   red: document.querySelector("#quotes-red")
+   red: document.querySelector("#quotes-red"),
+   blue: document.querySelector('#quotes-blue')
 }
 
 pill.red.onclick = () => {
@@ -62,7 +63,7 @@ pill.red.onclick = () => {
    document.querySelector('#escolhe-red-pill').style.display = 'grid'
    
    var tempoDoIndicadorDeQuotes = 1 * 90
-   var teste = setInterval(quotes, 1000)
+   var mostraQuotes = setInterval(quotes, 1000)
 
    function quotes() {
       tempoDoIndicadorDeQuotes--
@@ -126,8 +127,9 @@ pill.red.onclick = () => {
       else if (tempoDoIndicadorDeQuotes <= 20) {
          refletir.red.innerHTML = "<div id='about'><span style='display:flex;'>PSILVA<p class='pisca-code' style='animation:pisca-code 2.1s linear infinite;'>_</p></span></div>"
 
-         clearInterval(teste)
+         clearInterval(mostraQuotes)
       }
+
    }
 }
 
@@ -152,6 +154,35 @@ pill.blue.onmouseout = () => {
 pill.blue.onclick = () => {
    document.querySelector('.pills').classList.remove('active')
    document.querySelector('#escolhe-blue-pill').style.display = 'grid'
+
+   var tempoDoIndicadorDeQuotes = 1 * 60
+   var mostraQuotes = setInterval(quotes, 1000)
+
+   function quotes() {
+      tempoDoIndicadorDeQuotes--
+
+      if (tempoDoIndicadorDeQuotes <= 60 && tempoDoIndicadorDeQuotes >= 55) {
+         refletir.blue.innerHTML = 'Vós enlouquecestes e tomastes o caminho errado.'
+      }
+
+      else if (tempoDoIndicadorDeQuotes <= 55 && tempoDoIndicadorDeQuotes >= 48) {
+         refletir.blue.innerHTML = 'Tomais a mentira pela verdade, e a deformidade pela beleza'
+      }
+
+      else if (tempoDoIndicadorDeQuotes <= 48 && tempoDoIndicadorDeQuotes >= 44) {
+         refletir.blue.innerHTML = 'Vós trocastes o céu pela terra...'
+      }
+
+      else if (tempoDoIndicadorDeQuotes <= 44 && tempoDoIndicadorDeQuotes >= 40) {
+         refletir.blue.innerHTML = 'Seja feliz!'
+      }
+
+      else if (tempoDoIndicadorDeQuotes <= 40) {
+         refletir.blue.innerHTML = '...'
+
+         clearInterval(mostraQuotes)
+      }
+   }
 }
 
 function background_blue_pill() {
